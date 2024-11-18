@@ -94,7 +94,7 @@ export function createSupabaseClient(req: Request, resp: Response) {
 
       setAll(cookiesToSet) {
         cookiesToSet.forEach(({ name, value, options }) => {
-          const cookie = serializeCookieHeader(key, value, options);
+          const cookie = serializeCookieHeader(name, value, options);
           // If the cookie is updated, update the cookies for the response
           resp.headers.append("Set-Cookie", cookie);
         });

@@ -49,7 +49,7 @@ export default function Page(req: Request) {
   return (
     <Container>
       <div class="max-w-lg mx-auto flex flex-col gap-4 justify-start">
-        <h1 class="text-xl">Sign in</h1>
+        <h1 class="text-xl">Sign up</h1>
         <form method="post" class="flex-col flex gap-4">
           <div class="flex flex-col gap-2">
             <label for="email">Email</label>
