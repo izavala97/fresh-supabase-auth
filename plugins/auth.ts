@@ -51,9 +51,14 @@ async function setSessionState(req: Request, ctx: FreshContext) {
   const supabase = createSupabaseClient(req, resp);
 
   // Refresh session if expired
-  const { data } = await supabase.auth.getSession();
+  const { data, error } = await supabase.auth.getUser();
 
-  ctx.state.session = data.session;
+  if (error) {
+    ctx.state.session = null;
+  } else {
+    ctx.state.session = data;
+  }
+  
 
   // Continue down the middleware chain
   const nextResp = await ctx.next();
